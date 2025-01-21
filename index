@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Manager - Home</title>
+    <style>
+        .primary-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid white;
+
+  text-align: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 10px white;
+}
+
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background-color: black;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: gray;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: black;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        .sign-in-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid white;
+            background: none;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .sign-in-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('animated-farm-bg.gif') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero button {
+            padding: 1rem 2rem;
+            margin: 0 1rem;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero .primary-btn {
+            background-color: white;
+            color: black;
+        }
+
+        .hero .primary-btn:hover {
+            background-color: gray;
+            color: white;
+        }
+
+        .hero .secondary-btn {
+            background: none;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .hero .secondary-btn:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Core Features Section */
+        .features {
+            text-align: center;
+            padding: 4rem 1rem;
+            background-color: black;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            color: black;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card img {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 1rem;
+            background: linear-gradient(to bottom, #dedcdc, #dedcdc);
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial-card {
+            flex: 0 0 300px;
+            border: 1px solid white;
+            padding: 1rem;
+            background: white;
+            color: black;
+            border-radius: 10px;
+            scroll-snap-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: black;
+            color: white;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin: 0.5rem 0;
+        }
+
+        footer .social-icons img {
+            height: 20px;
+            margin: 0 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            nav .hamburger-menu {
+                display: block;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            nav .hamburger-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="container">
+    <div class="logo">
+        <img src="farm-icon.png" alt="Farm Logo">
+        Farm Manager
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="Features.html">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <button class="sign-in-btn">Sign In</button>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Revolutionize Your Farm Management</h1>
+    <p>Empowering farmers to track, analyze, and grow—all in one place.</p>
+    <div>
+        <a class="primary-btn" href="login.html">Start for Free</a>
+        <button class="secondary-btn">Learn More</button>
+    </div>
+    <div class="scroll-arrow">&#8595;</div>
+</section>
+
+<!-- Core Features -->
+<section class="features container">
+    <h2>Core Features</h2>
+    <div class="features-grid">
+        <div class="feature-item">
+            <img src="crop-icon.png" alt="Crop Management">
+            <p>Crop Management</p>
+        </div>
+        <div class="feature-item">
+            <img src="livestock-icon.png" alt="Livestock Monitoring">
+            <p>Livestock Monitoring</p>
+        </div>
+        <div class="feature-item">
+            <img src="expense-icon.png" alt="Expense Tracking">
+            <p>Expense Tracking</p>
+        </div>
+        <div class="feature-item">
+            <img src="report-icon.png" alt="Productivity Reports">
+            <p>Productivity Reports</p>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonials-grid container">
+        <div class="testimonial-card">
+            <p>"This app transformed my farm operations!"</p>
+            <p>- John Doe, Kansas</p>
+        </div>
+        <div class="testimonial-card">
+            <p>"Effortless and powerful farm management tool."</p>
+            <p>- Jane Smith, Texas</p>
+        </div>
+        <div class="testimonial-card">
+            <p>"Highly recommend it to every farmer!"</p>
+            <p>- Ahmed Khan, India</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
